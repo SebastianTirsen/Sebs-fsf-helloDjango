@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 import dj_database_url
 
@@ -83,7 +84,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 #}
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://yllwbbrqrhsqln:3a31575ada93ac84f2e695f7de6e0fa7e9da47e7111935d0109ef4cc978490f4@ec2-52-208-254-158.eu-west-1.compute.amazonaws.com:5432/d5fg19r74vndb5')
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
